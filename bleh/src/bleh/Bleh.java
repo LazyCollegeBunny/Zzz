@@ -5,6 +5,10 @@
  */
 package bleh;
 
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
 /**
  *
  * @author victoriapayne
@@ -14,10 +18,19 @@ package bleh;
  */
 public class Bleh {
 
-    public static void main(String[] args) {
-        System.out.println("..");
-        
-        
+    public static void main(String[] args) throws FileNotFoundException {
+        try {
+            FileReader reader = new FileReader("HelloWorld.txt");
+            int character;
+ 
+            while ((character = reader.read()) != -1) {
+                System.out.print((char) character);
+            }
+            reader.close();
+ 
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
-    
+ 
 }
